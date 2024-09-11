@@ -11,7 +11,6 @@ def auto_login(u, p, url):
     if not os.path.isfile(path):
         raise ValueError(f"The path is not a valid file: {path}")
     
-    # Initialize the Chrome WebDriver with the specified path
     service = ChromeService(executable_path=path)
     driver = webdriver.Chrome(service=service)
 
@@ -28,7 +27,6 @@ def auto_login(u, p, url):
         # Find the login button and click it
         driver.find_element(By.CSS_SELECTOR, "button[aria-label='Sign in']").click()
 
-        # Optional: Add a delay or wait for user input
         input("Press Enter to close the browser...")
 
     except Exception as e:
